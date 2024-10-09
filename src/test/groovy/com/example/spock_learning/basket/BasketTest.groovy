@@ -1,13 +1,13 @@
-package com.example.spock_learning
+package com.example.spock_learning.basket
 
-import com.example.spock_learning.basket.Basket
+
 import com.example.spock_learning.shared.Money
 import spock.lang.Specification
 
 import static com.example.spock_learning.product.ProductTestFactory.createCleanCodeBook
 import static com.example.spock_learning.product.ProductTestFactory.createMicroservicesBook
 
-class BasketSpecification extends Specification {
+class BasketTest extends Specification {
 
     def basket = new Basket()
 
@@ -37,4 +37,6 @@ class BasketSpecification extends Specification {
         2      | 470.8
         5      | 1177.0
     }
+
+    // TODO: test toOrder method
 }

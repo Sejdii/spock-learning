@@ -2,10 +2,10 @@ package com.example.spock_learning.shared;
 
 import java.math.BigDecimal;
 
-public record Money(BigDecimal amount, String currency) {
+public record Money(BigDecimal amount, Currency currency) {
 
     public static Money ofPLN(BigDecimal amount) {
-        return new Money(amount, "PLN");
+        return new Money(amount, Currency.PLN);
     }
 
     public static Money zero() {
@@ -18,6 +18,10 @@ public record Money(BigDecimal amount, String currency) {
 
     public Money multiply(int number) {
         return ofPLN(this.amount.multiply(BigDecimal.valueOf(number)));
+    }
+
+    public Money changeCurrency(Currency toCurrency, BigDecimal exchangeRate) {
+        return new Money(amount.multiply(exchangeRate), toCurrency);
     }
 
     @Override
